@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 backgroundColor: '#34d399'
             }]
         },
-        options: { indexAxis: 'y' }
+        options: { indexAxis: 'x' }
     });
 
 // --- 3. FUNCIONES DE CARGA DE DATOS ---
