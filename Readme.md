@@ -13,3 +13,6 @@ Este proyecto es un sistema de monitoreo que integra datos de **Jira Software** 
 2. Configurar el archivo `.env` con tus credenciales.
 3. Ejecutar: `python production_replay.py`
 4. Abrir `index.html` en el navegador.
+
+### Dashboard con gráficas
+<img width="1135" height="878" alt="image" src="https://github.com/user-attachments/assets/dedb2365-1f17-4042-9764-15e1ce73b40f" />
