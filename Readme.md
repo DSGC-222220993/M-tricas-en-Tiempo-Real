@@ -15,4 +15,4 @@ Este proyecto es un sistema de monitoreo que integra datos de **Jira Software** 
 4. Abrir `index.html` en el navegador.
 
 ### Dashboard con gráficas
-<img width="1147" height="940" alt="image" src="https://github.com/user-attachments/assets/3621364f-ece2-4c40-92fc-9f291de261e1" />
+<img width="1135" height="878" alt="image" src="https://github.com/user-attachments/assets/dedb2365-1f17-4042-9764-15e1ce73b40f" />
