@@ -1,6 +1,9 @@
 import asyncio
 import json
 import sqlite3
+import aiohttp
+import os
+from dotenv import load_dotenv
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
@@ -8,6 +11,10 @@ from typing import Optional
 
 from aiohttp import web
 
+load_dotenv()
+
+JIRA_EMAIL = os.getenv("JIRA_EMAIL")
+JIRA_TOKEN = os.getenv("JIRA_API_TOKEN")
 
 @dataclass(frozen=True)
 class ProductionEntry:
@@ -147,11 +154,29 @@ async def ws_production(request: web.Request) -> web.WebSocketResponse:
 
     return websocket
 
+# Manejador para obtener datos de Jira
+async def get_jira_metrics(request):
+    if not JIRA_EMAIL or not JIRA_TOKEN:
+        return web.json_response({"error": "Faltan credenciales en el archivo .env"}, status=500)
+
+    url = "https://unison-team-oxwbq3tc.atlassian.net/rest/api/3/search/jql" # personalizar con tu URL y endpoint de Jira
+    auth = aiohttp.BasicAuth(JIRA_EMAIL, JIRA_TOKEN)
+    
+    params = {
+        "jql": "project = CET AND issuetype = Solicitud",
+        "fields": "summary,status,created,resolutiondate,customfield_10140,customfield_10138"
+    }
+    
+    async with aiohttp.ClientSession(auth=auth) as session:
+        async with session.get(url, params=params) as resp:
+            data = await resp.json()
+            return web.json_response(data)
 
 def create_app() -> web.Application:
     app = web.Application(middlewares=[cors_middleware])
     app.router.add_get("/employees", get_employees)
     app.router.add_get("/ws/production", ws_production)
+    app.router.add_get("/jira/data", get_jira_metrics)
     return app
 
 

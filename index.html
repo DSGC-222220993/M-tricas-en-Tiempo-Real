@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Métricas - Proyecto CET</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#0b1120] text-white p-6">
+
+    <h1 class="text-xl font-bold mb-6 border-b border-gray-800 pb-2">MÉTRICAS EN TIEMPO REAL - PROYECTO CET</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#111827] p-4 rounded-xl border border-gray-800 shadow-xl">
+            <h2 class="text-sm text-gray-400 mb-4">Completion (tiempo de completado)</h2>
+            <canvas id="completionChart" height="150"></canvas>
+        </div>
+
+        <div class="bg-[#111827] p-4 rounded-xl border border-gray-800 shadow-xl">
+            <h2 class="text-sm text-gray-400 mb-4">Acceptance (ratio de aceptación)</h2>
+            <div class="w-48 mx-auto">
+                <canvas id="acceptanceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-[#111827] p-4 rounded-xl border border-gray-800 shadow-xl md:col-span-2">
+            <h2 class="text-sm text-gray-400 mb-4">Spend By Category (gasto por categoría)</h2>
+            <canvas id="spendChart" height="100"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
