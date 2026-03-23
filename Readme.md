@@ -16,3 +16,7 @@ Este proyecto es un sistema de monitoreo que integra datos de **Jira Software** 
 
 ### Dashboard con gráficas
 <img width="1135" height="878" alt="image" src="https://github.com/user-attachments/assets/dedb2365-1f17-4042-9764-15e1ce73b40f" />
+
+### Explorador de archivos de VS Code
+<img width="290" height="281" alt="image" src="https://github.com/user-attachments/assets/908fb0f7-3f49-4bed-b1aa-27f171b3073b" />
+
